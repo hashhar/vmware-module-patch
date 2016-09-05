@@ -1,0 +1,13 @@
+--- ./linux/driver.c.backup	2016-09-06 00:58:06.146232054 +0530
++++ ./linux/driver.c	2016-09-06 01:00:21.522229630 +0530
+@@ -387,9 +387,7 @@
+ #ifdef VMX86_DEVEL
+    unregister_chrdev(linuxState.major, linuxState.deviceName);
+ #else
+-   if (misc_deregister(&linuxState.misc)) {
+-      Warning("Module %s: error unregistering\n", linuxState.deviceName);
+-   }
++   misc_deregister(&linuxState.misc);
+ #endif
+ 
+    Log("Module %s: unloaded\n", linuxState.deviceName);
