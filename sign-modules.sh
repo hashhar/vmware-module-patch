@@ -47,3 +47,4 @@ fi
 
 printf '%s\n' "Remember the password you just entered, you will need it when you reboot to enroll the key. This is just a one-time process though."
 
+sudo /etc/init.d/vmware restart
