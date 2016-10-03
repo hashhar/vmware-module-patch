@@ -2,18 +2,18 @@
 
 orig="$(pwd)"
 cd /usr/lib/vmware/modules/source
-tar xf vmnet.tar && \
+sudo tar xf vmnet.tar && \
 	cd vmnet-only && \
-	make
+	sudo make
 cd ..
-cp vmnet.o "/lib/modules/$(uname -r)/misc/vmnet.ko"
+sudo cp vmnet.o "/lib/modules/$(uname -r)/misc/vmnet.ko"
 
-tar xf vmmon.tar && \
+sudo tar xf vmmon.tar && \
 	cd vmmon-only && \
-	patch linux/driver.c < "$orig/vmmon-driver.patch"
-make
+	sudo patch linux/driver.c < "$orig/vmmon-driver.patch"
+sudo make
 cd ..
-cp vmmon.o "/lib/modules/$(uname -r)/misc/vmmon.ko"
+sudo cp vmmon.o "/lib/modules/$(uname -r)/misc/vmmon.ko"
 
-depmod -a
+sudo depmod -a
 
